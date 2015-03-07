@@ -1,4 +1,17 @@
 
+//gets the value of href parameter back.
+//helps in determining if the current location is reached from back button.
+function getUrlValue(varSearch){
+    var searchString = window.location.search.substring(1);
+    var variableArray = searchString.split('&');
+    for(var i = 0; i < variableArray.length; i++){
+        var keyValuePair = variableArray[i].split('=');
+        if(keyValuePair[0] == varSearch){
+            return keyValuePair[1];
+        }
+    }
+};
+
 /**
  * Implements custom backbutton logic using local storage. 
  * The backbutton default logic may not work properly accross
